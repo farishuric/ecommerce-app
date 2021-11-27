@@ -1,0 +1,43 @@
+.header-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.logo-wrapper {
+    width: 18%;
+}
+
+.logo {
+    font-size: 55px;
+}
+
+.menu-wrapper {
+    flex: 0 0 65%;
+}
+
+.main-nav>li {
+    float: left;
+}
+
+.main-nav>li>a {
+    display: block;
+    padding: 38px 18px;
+    position: relative;
+    line-height: 30px;
+    color: #222;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 38px 10px;
+    line-height: 0;
+    font-size: 15px;
+    text-transform: capitalize;
+    font-weight: 400;
+    padding-right: 17px;
+    padding-left: 0;
+}
+
+.account-wrapper {
+    width: 18%;
+    display: flex;
+    justify-content: space-between;
+}
