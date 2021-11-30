@@ -1,15 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
 import BtnSlider from "./BtnSlider";
-import dataSlider from "./dataSlider";
 import HeroButton from "./HeroButton";
 
 export default function Slider() {
   const [slideIndex, setSlideIndex] = useState(1);
 
+  const [Sd, setSd] = useState([]);
+
+
+  useEffect(() => {
+    axios.get('/api/data-slider').then((res) => {
+      setSd(res.data);
+    });
+  }, []);
+
+
+
   const nextSlide = () => {
-    if (slideIndex !== dataSlider.length) {
+    if (slideIndex !== Sd.length) {
       setSlideIndex(slideIndex + 1);
-    } else if (slideIndex === dataSlider.length) {
+    } else if (slideIndex === Sd.length) {
       setSlideIndex(1);
     }
   };
@@ -18,7 +29,7 @@ export default function Slider() {
     if (slideIndex !== 1) {
       setSlideIndex(slideIndex - 1);
     } else if (slideIndex === 1) {
-      setSlideIndex(dataSlider.length);
+      setSlideIndex(Sd.length);
     }
   };
 
@@ -26,9 +37,12 @@ export default function Slider() {
     setSlideIndex(index);
   };
 
+
+
+
   return (
     <div className="container-slider">
-      {dataSlider.map((obj, index) => {
+      {Sd.map((obj, index) => {
         return (
           <div
             key={obj.id}

@@ -1,0 +1,31 @@
+{
+  "name": "ecommerce-project",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farishuric/ecommerce-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/farishuric/ecommerce-app/issues"
+  },
+  "homepage": "https://github.com/farishuric/ecommerce-app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/register": "^7.16.0",
+    "nodemon": "^2.0.15"
+  }
+}

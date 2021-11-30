@@ -1,75 +1,65 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 
 import SwiperCore, { Pagination } from "swiper";
-
-// This all bellow will be changed in future with dynamic data!
-import ImageOne from '../../assets/media/product1.jpeg';
-import ImageTwo from '../../assets/media/product2.jpeg';
-import ImageThree from '../../assets/media/product3.jpeg';
-import ImageFour from '../../assets/media/product4.jpeg';
-import ImageFive from '../../assets/media/product5.jpeg';
-
-
-// This all above will be changed in future with dynamic data!
-
+import axios from 'axios';
 
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
 function ProductCarousell() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios.get("/api/products-data").then((res) => {
+      setProducts(res.data);
+    });
+  }, []);
   return (
     <div>
       <Swiper
         slidesPerView={5}
         spaceBetween={30}
         slidesPerGroup={5}
-        loop={true}
         loopFillGroupWithBlank={true}
         pagination={{
           clickable: true,
         }}
         navigation={true}
         className="mySwiper"
+        breakpoints= {{
+          1024: {
+            slidesPerView: 5
+          },
+          640: {
+            slidesPerView: 3
+          },
+          480: {
+            slidesPerView: 2
+          },
+
+          320: {
+            slidesPerView: 2
+          },
+
+        }}
       >
-        <SwiperSlide>
+        {products.map((data)=>{
+          return(
+            <SwiperSlide>
             <div className="product-carousell-elements">
-                <img src={ImageOne} alt="" />
-                <p className="product-name">Air Jordans</p>
-                <p className="product-price">€50,00</p>
+              <img src={data.productImageUrl} alt="Test" />
+              <p className="product-name">{data.productName}</p>
+              <p className="product-price">€{data.productPrice}</p>
             </div>
-        </SwiperSlide>
-        <SwiperSlide>
-            <div className="product-carousell-elements">
-                <img src={ImageTwo} alt="" />
-                <p className="product-name">Nike RXN</p>
-                <p className="product-price">€150,00</p>
-            </div>
-        </SwiperSlide>
-        <SwiperSlide>
-            <div className="product-carousell-elements">
-                <img src={ImageThree} alt="" />
-                <p className="product-name">Rugby helmet</p>
-                <p className="product-price">€300,00</p>
-            </div>
-        </SwiperSlide>
-        <SwiperSlide>
-            <div className="product-carousell-elements">
-                <img src={ImageFour} alt="" />
-                <p className="product-name">Dunlop racket</p>
-                <p className="product-price">€24,00</p>
-            </div>
-        </SwiperSlide>
-        <SwiperSlide>
-            <div className="product-carousell-elements">
-                <img src={ImageFive} alt="" />
-                <p className="product-name">Nike Tanjun</p>
-                <p className="product-price">€24,00</p>
-            </div>
-        </SwiperSlide>
+          </SwiperSlide>
+          );
+        })}
+
+
       </Swiper>
     </div>
   );
