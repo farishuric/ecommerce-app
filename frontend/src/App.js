@@ -1,10 +1,14 @@
-import './assets/style/app.css'
-import Home from './pages/Home';
+import AppRoutes from "./AppRoutes";
+import "./assets/style/app.css";
+
 
 function App() {
-  return (
-    <Home/>
-  );
+	return (
+		<div id="main">
+			<AppRoutes>
+			</AppRoutes>
+		</div>
+	);
 }
 
 export default App;

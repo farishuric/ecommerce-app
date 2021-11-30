@@ -511,4 +511,17 @@ input {
 .product-carousell-elements img {
   max-width: 300px;
 }
+
+.product-cards-row {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-gap: 20px;
+}
+
+.product-card-wrapper .product-card-image img {
+  max-width: 100%;
+}
 /*# sourceMappingURL=app.css.map */

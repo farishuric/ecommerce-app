@@ -1,0 +1,12 @@
+.product-cards-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-gap: 20px;
+}
+
+.product-card-wrapper {
+    & .product-card-image img{
+        max-width: 100%;
+    }
+}
