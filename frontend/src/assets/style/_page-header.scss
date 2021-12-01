@@ -1,0 +1,19 @@
+.page-header {
+    background-position: center left;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+}
+
+.heading-wrapper {
+    padding-top: 30px;
+    padding-bottom: 30px;    
+    & h1 {
+        padding-left: 16px;
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 1.1em;
+        color: #fff;
+        border-left: 10px solid var(--global-red-color);
+    }
+}
+

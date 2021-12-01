@@ -8,14 +8,17 @@ function Header() {
         <div className="container">
           <div className="header-wrapper">
             <div className="logo-wrapper">
+                <a href="/">
               <h1 className="logo">Logo.</h1>
+
+                </a>
             </div>
             <div className="menu-wrapper">
               <ul className="main-nav">
                 <li
                   className="level-0 menu-item use-sofas dropdown"
                 >
-                  <a href="/collections/sofas" className="level-0">
+                  <a href="/shop" className="level-0">
                     Lorem
                   </a>
                 </li>

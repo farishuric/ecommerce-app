@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
-
-import SwiperCore, { Pagination } from "swiper";
 import axios from "axios";
 
 // install Swiper modules
@@ -19,16 +18,21 @@ function ProductCarousell() {
 		});
 	}, []);
 	return (
-		<div>
+		<div className="product-carousel container">
 			<Swiper
+  
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
 				slidesPerView={5}
 				spaceBetween={30}
 				slidesPerGroup={5}
+                observeParents={true}
+                observer={true}
 				loopFillGroupWithBlank={true}
 				pagination={{
 					clickable: true,
 				}}
 				navigation={true}
+
 				className="mySwiper"
 				breakpoints={{
 					1024: {
